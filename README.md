@@ -1,8 +1,7 @@
 # ChatGPT Telegram Bot: **Fast. No daily limits. Special chat modes**
 
-<div align="center">
-<img src="https://raw.githubusercontent.com/karfly/chatgpt_telegram_bot/main/static/header.png" align="center" style="width: 100%" />
-</div>
+<a href='https://t.me/maidaritsydenov'><img src="https://github.com/maidaritsydenov/telegram_bot_chatGPT/blob/main/static/avatar%20for%20gh.png" width="100" 
+   height="100" alt="Пример"></a>
 
 <p align="center">
 <a href="https://t.me/ai_open_gpt_chat_bot" alt="Run Telegram Bot shield"><img src="https://img.shields.io/badge/RUN-Telegram%20Bot-blue" /></a>
@@ -118,3 +117,5 @@ git push
 ```
 
 Добавить про sudo nano /etc/mongod.conf
+
+# Каркас взят из репозитория https://github.com/karfly/chatgpt_telegram_bot. Спасибо!
