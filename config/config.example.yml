@@ -1,5 +1,7 @@
 telegram_token: ""
 openai_api_key: ""
-bot_domain: ""
+openai_api_key2: ""
+bot_chatgpt: "Майдари"
+bot_dalle: "image"
 allowed_telegram_usernames: []  # if empty, the bot is available to anyone
 new_dialog_timeout: 600  # new dialog starts after timeout (in seconds)
