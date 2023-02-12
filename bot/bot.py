@@ -20,11 +20,13 @@ from telegram.constants import ParseMode, ChatAction
 import config
 import database
 import chatgpt
+import openai
 
 
 # setup
 db = database.Database()
 logger = logging.getLogger(__name__)
+openai.api_key = config.openai_api_key2
 
 HELP_MESSAGE = """Commands:
 ⚪ /retry – Regenerate last bot answer
@@ -32,6 +34,7 @@ HELP_MESSAGE = """Commands:
 ⚪ /mode – Select chat mode
 ⚪ /balance – Show balance
 ⚪ /help – Show help
+⚪ /dalle – Generate image
 """
 
 async def register_user_if_not_exists(update: Update, context: CallbackContext, user: User):
@@ -224,6 +227,24 @@ async def error_handle(update: Update, context: CallbackContext) -> None:
     await context.bot.send_message(update.effective_chat.id, message, parse_mode=ParseMode.HTML)
 
 
+async def dalle(update, context):
+    if not context.args:
+        await context.bot.send_message(chat_id=update.effective_chat.id, text="Напиши описание, на основе которого я создам картинку")
+        return
+    
+    prompt = ' '.join(context.args)
+
+    # Используем API OpenAI для генерации изображения
+    response = openai.Image.create(
+        prompt=prompt,
+        n=1,
+        size="1024x1024"
+        )
+    # Получаем url изображения и отправляем его пользователю
+    image_url = response['data'][0]['url']
+    await context.bot.send_photo(update.effective_chat.id, photo=image_url)
+
+
 def run_bot() -> None:
     application = (
         ApplicationBuilder()
@@ -239,8 +260,10 @@ def run_bot() -> None:
 
     application.add_handler(CommandHandler("start", start_handle, filters=user_filter))
     application.add_handler(CommandHandler("help", help_handle, filters=user_filter))
+    application.add_handler(CommandHandler("dalle", dalle, filters=user_filter))
     
-    application.add_handler(MessageHandler(filters.Regex(f'{config.bot_domain}') & ~filters.COMMAND & user_filter, message_handle))
+    application.add_handler(MessageHandler(filters.Regex(f'{config.bot_chatgpt}') & ~filters.COMMAND & user_filter, message_handle))
+    # application.add_handler(MessageHandler(filters.Regex(f'{config.bot_dalle}') & ~filters.COMMAND & user_filter, dalle))
     # application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND & user_filter, message_handle))
     application.add_handler(CommandHandler("retry", retry_handle, filters=user_filter))
     application.add_handler(CommandHandler("new", new_dialog_handle, filters=user_filter))
