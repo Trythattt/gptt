@@ -260,7 +260,7 @@ def run_bot() -> None:
 
     application.add_handler(CommandHandler("start", start_handle, filters=user_filter))
     application.add_handler(CommandHandler("help", help_handle, filters=user_filter))
-    application.add_handler(CommandHandler(f"{config.bot_dalle}", dalle, filters=user_filter))
+    application.add_handler(CommandHandler("dalle", dalle, filters=user_filter))
     
     application.add_handler(MessageHandler(filters.Regex(f'{config.bot_chatgpt}') & ~filters.COMMAND & user_filter, message_handle))
     # application.add_handler(MessageHandler(filters.Regex(f'{config.bot_dalle}') & ~filters.COMMAND & user_filter, dalle))
