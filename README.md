@@ -1,4 +1,5 @@
-# ChatGPT Telegram Bot: **Fast. No daily limits. Special chat modes**
+# The project is under development
+# ChatGPT Telegram Bot: **Fast. No daily limits. Special chat modes + DALL-E**
 
 <a href='https://t.me/maidaritsydenov'><img src="https://github.com/maidaritsydenov/telegram_bot_chatGPT/blob/main/static/avatar%20for%20gh.png" width="300" 
    height="300" alt="Пример"></a>
