@@ -134,4 +134,3 @@ config/config.env
 
 docker-compose.dev.yml
 mongodb/
-/mongodb/
