@@ -1,7 +1,7 @@
 # ChatGPT Telegram Bot: **Fast. No daily limits. Special chat modes**
 
-<a href='https://t.me/maidaritsydenov'><img src="https://github.com/maidaritsydenov/telegram_bot_chatGPT/blob/main/static/avatar%20for%20gh.png" width="100" 
-   height="100" alt="Пример"></a>
+<a href='https://t.me/maidaritsydenov'><img src="https://github.com/maidaritsydenov/telegram_bot_chatGPT/blob/main/static/avatar%20for%20gh.png" width="300" 
+   height="300" alt="Пример"></a>
 
 <p align="center">
 <a href="https://t.me/ai_open_gpt_chat_bot" alt="Run Telegram Bot shield"><img src="https://img.shields.io/badge/RUN-Telegram%20Bot-blue" /></a>
